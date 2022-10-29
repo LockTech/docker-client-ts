@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🐳&nbsp;&nbsp;&nbsp;Docker Engine API Client</h1>
-  <p>(a) NodeJS client for the <a href="https://docs.docker.com/engine/api/">Docker Engine API</a> with support for TypeScript</p>
+  <p>(a) NodeJS client for the <a href="https://docs.docker.com/engine/api/">Docker Engine API</a>, with support for TypeScript</p>
   <br />
   <div style="display:flex;flex-direction:row;justify-content:center;">
     <a href="https://www.npmjs.com/package/@locktech/docker-client">
@@ -26,6 +26,29 @@ Start by installing the client using your preferred package manager, below is an
 
 ```bash
 yarn add @locktech/docker-client
+```
+
+The client is configured to use [Axios](https://axios-http.com/) for making requests, providing support for connecting to a UNIX socket. This functionality can be used to connect directly to the host machine's Docker dameon. Because requests are being made against the socket and not an HTTP server, the `baseURL` can be any valid URL.
+
+```TypeScript
+import { Api } from '@locktech/docker-client'
+
+export const docker = new Api({
+  baseURL: 'http://localhost',
+  socketPath: '/var/run/docker.sock',
+})
+```
+
+Once the API has been initalized, it can be used to make requests against the configured Docker Engine API.
+
+```TypeScript
+const DoSomething = async () => {
+  const containers = await docker.containers.containerList({ ... })
+
+  for (const container of containers.data) {
+    ...
+  }
+}
 ```
 
 ## Contributing
@@ -59,6 +82,7 @@ This repository and the generated code is provided under the [MIT license](./LIC
 
 ## References
 
+- [Axios](https://axios-http.com/)
 - [Docker Engine API](https://docs.docker.com/engine/api/)
   - [Latest Reference](https://docs.docker.com/engine/api/latest/)
 - [swagger-typescript-api](https://github.com/acacode/swagger-typescript-api)
