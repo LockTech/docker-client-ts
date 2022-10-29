@@ -30,7 +30,7 @@ yarn add @locktech/docker-client
 
 ## Contributing
 
-This repository acts as a template for generating, building, and publishing a client for the Docker Engine API. This process is triggered when [a new release is created](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release), which will use [the configured specification](./.github/workflows/release.yml) as a reference for generation. After being generated, the built package is published to the npm registry - versioned using the release's `tag`.
+This repository acts as a template for generating, building, and publishing a client for the Docker Engine API. This process is triggered when [a new release is created](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release), which will use [the configured specification](./.github/workflows/release.yml) as a reference for generation. After being generated, the built package is published to the npm registry.
 
 ```YAML
 name: CI — Generate and Release
