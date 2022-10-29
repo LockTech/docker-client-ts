@@ -1,6 +1,6 @@
 <div align="center">
   <h1>🐳&nbsp;&nbsp;&nbsp;Docker Engine API Client</h1>
-  <p>(a) NodeJS client for the Docker Engine API with support for TypeScript</p>
+  <p>(a) NodeJS client for the <a href="https://docs.docker.com/engine/api/">Docker Engine API</a> with support for TypeScript</p>
   <br />
   <div style="display:flex;flex-direction:row;justify-content:center;">
     <a href="https://www.npmjs.com/package/@locktech/docker-client">
