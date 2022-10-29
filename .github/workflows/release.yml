@@ -1,0 +1,39 @@
+name: CI — Generate and Release
+
+env:
+  DOCKER_ENGINE_API: https://docs.docker.com/engine/api/v1.41.yaml
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2.5.0
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 16
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Generate the Client
+        run: npm run generate ${{ env.DOCKER_ENGINE_API }}
+
+      - name: Build the Package
+        run: npm run build
+
+      - name: Version the Package
+        uses: jaywcjlove/github-action-package@v1.2.4
+        with:
+          version: ${{ github.ref_name }}
+
+      - name: Publish the Package
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
