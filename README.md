@@ -55,7 +55,7 @@ The following steps will build the client locally, and is the same set of steps 
 
 ## License
 
-This repository and the generated code is provided under the [MIT license](./LICENSE). The reference Swagger specification used to generate the client is licensed under [Apache 2.0](https://github.com/docker/engine#licensing).
+This repository and the generated code is provided under the [MIT license](./LICENSE). The reference Swagger specification - used to generate the client - is licensed under [Apache 2.0](https://github.com/docker/engine#licensing).
 
 ## References
 
