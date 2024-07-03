@@ -1,7 +1,7 @@
 name: CI — Generate and Release
 
 env:
-  DOCKER_ENGINE_API: https://docs.docker.com/engine/api/v1.42.yaml
+  DOCKER_ENGINE_API: https://docs.docker.com/engine/api/v1.46.yaml
 
 on:
   release:
